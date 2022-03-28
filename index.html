@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<style>
+    body{
+        background-image: url(gif.gif);
+        background-size: cover;
+        align-content: center;
+
+    }
+    .container {
+        width: 50%;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        background-color: cornsilk;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 15%;
+        border: 2px solid;
+        border-radius: 5px;
+        border-color: lightblue;
+    }
+    .title {
+        justify-content: center;
+        display: flex;
+        
+    }
+    #Ftitle {
+        margin-left: 20%;
+    }
+    .textbox {
+        justify-content: center;
+        display: flex;
+    }
+    .input {
+        width: 25%;
+        margin: 15px;
+        padding: 10px;
+        border: 2px solid;
+        border-radius: 5px;
+        border-color: black;
+    }
+    #button {
+        margin-top: 5%;
+        text-align: center;
+    }
+    #convertbtn{
+        padding: 10px;
+    }
+    #conversion{
+        text-align: center;
+        
+    }
+    #convertout {
+        border: 2px solid;
+        border-color: black;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 5%;
+
+    }
+</style>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">
+            <input id="Ctitle" type="radio" title="Celcius" onclick="fahrenheitRadio();"/>
+            <label>Celcius</label>
+            <input id="Ftitle" type="radio" title="Fahrenheit" onclick="celciusRadio();" />
+            <label>Fahrenheit</label>
+        </div>
+        <div class="textbox">
+            <input class="input" ID="txtbox" placeholder="Enter Here"  />
+        </div>
+        <div id="button">
+            <input id="convertbtn" type="button" value="Convert" />
+        </div>
+        <div id="conversion">
+            <input id="convertout" value="---" />
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("convertbtn").onclick = function convert() {
+            
+            if (document.getElementById("Ctitle").checked) {
+                var num = document.getElementById("txtbox").value;
+                var new_num = (num * 1.8) + 32;
+                document.getElementById("convertout").value = new_num.toFixed(1) + " Fahrenheit";
+            }
+            if (document.getElementById("Ftitle").checked) {
+                var num2 = document.getElementById("txtbox").value;
+                var new_num2 = (num2 - 32) / 1.8;
+                document.getElementById("convertout").value = new_num2.toFixed(1) + " Celcius";
+            }
+        }
+
+        function celciusRadio() {
+            document.getElementById("Ctitle").checked = false;
+        }
+        function fahrenheitRadio() {
+            document.getElementById("Ftitle").checked = false;
+        }
+    </script>
+
+</body>
+</html>
